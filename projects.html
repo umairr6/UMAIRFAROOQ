@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Umair Farooq</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="projects-page">
+    <canvas id="particle-canvas"></canvas>
+    <div class="container">
+        <header>
+            <nav>
+                <div class="logo"><a href="index.html" style="text-decoration: none; color: white;">Umair Farooq</a></div>
+                <ul>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="get-started.html" class="get-started-button">Get Started</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section id="projects-section">
+            <h2>My Projects</h2>
+            <div class="projects-container">
+                <div class="project-card">
+                    <h3>Sign Language Recognition System</h3>
+                    <p>An intelligent system that recognizes hand gestures in real time and converts them into meaningful text or speech, improving accessibility and communication.</p>
+                    <button class="cta-button" onclick="openModal('sign-language-code')">Get Source Code</button>
+                </div>
+                <div class="project-card">
+                    <h3>AI Chatbot</h3>
+                    <p>A smart conversational assistant designed to answer queries, assist users, and provide information efficiently using natural language understanding.</p>
+                    <button class="cta-button" onclick="openModal('ai-chatbot-code')">Get Source Code</button>
+                </div>
+                <div class="project-card">
+                    <h3>Virtual Mouse System</h3>
+                    <p>A computer control system that allows users to operate the mouse using hand gestures, enabling touch-free interaction and enhanced accessibility.</p>
+                    <button class="cta-button" onclick="openModal('virtual-mouse-code')">Get Source Code</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- The Modal -->
+    <div id="code-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal()">&times;</span>
+            <h3>Source Code</h3>
+            <div id="modal-code-content"></div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/umair-farooq-b3ab1533b" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/umairr6" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="mailto:fumair750@gmail.com"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p>&copy; 2024 Umair Farooq. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="projects.js"></script>
+    <script>
+        // Modal functionality
+        function openModal(projectId) {
+            const modal = document.getElementById('code-modal');
+            const codeContent = document.getElementById('modal-code-content');
+            
+            // Fetch and display the code based on projectId
+            // This is a placeholder. We will add the actual code fetching later.
+            if (projectId === 'sign-language-code') {
+                codeContent.innerHTML = `<pre><code>Coming Soon...</code></pre>`;
+            } else if (projectId === 'ai-chatbot-code') {
+                codeContent.innerHTML = `<pre><code>Coming Soon...</code></pre>`;
+            } else if (projectId === 'virtual-mouse-code') {
+                codeContent.innerHTML = `<pre><code>Coming Soon...</code></pre>`;
+            }
+            
+            modal.style.display = "block";
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('code-modal');
+            modal.style.display = "none";
+        }
+
+        // Close the modal if the user clicks outside of it
+        window.onclick = function(event) {
+            const modal = document.getElementById('code-modal');
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
