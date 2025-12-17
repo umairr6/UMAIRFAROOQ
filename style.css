@@ -1,0 +1,397 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    background-color: #000;
+    color: white;
+    overflow-x: hidden;
+}
+
+#particle-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+header {
+    padding: 1.5rem 0;
+    background: transparent;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+nav ul li {
+    padding: 0 1rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.3s;
+    cursor: pointer;
+}
+
+nav ul li a {
+    color: #9400D3; /* Dark Violet */
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.projects-page nav ul li a {
+    color: #87CEEB; /* Sky Blue */
+}
+
+.get-started-page nav ul li a {
+    color: #00BFFF; /* Deep Sky Blue */
+}
+
+.discover-more-page nav ul li a {
+    color: #800000; /* Maroon */
+}
+
+nav ul li a:hover {
+    color: white;
+}
+
+.get-started-button {
+    background-color: transparent;
+    color: white;
+    padding: 0.7rem 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    margin-left: 1rem;
+    transition: background-color 0.3s;
+}
+
+.get-started-button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+#hero {
+    text-align: center;
+    padding: 6rem 0;
+    position: relative;
+}
+
+#hero::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 200px;
+    background: linear-gradient(to top, rgba(160, 68, 255, 0.8), transparent);
+    box-shadow: 0 0 15px 5px rgba(160, 68, 255, 0.5);
+}
+
+.tagline {
+    display: inline-block;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+    background-color: transparent;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    line-height: 1.2;
+    margin: 0 auto 1.5rem;
+    max-width: 800px;
+    font-weight: 700;
+}
+
+.hero-content p {
+    font-size: 1rem;
+    color: #ccc;
+    max-width: 500px;
+    margin: 0 auto 2.5rem;
+}
+
+.discover-button {
+    background: transparent;
+    color: white;
+    padding: 1rem 2.5rem;
+    border: 1px solid white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.discover-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 30px rgba(142, 45, 226, 0.8);
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    padding: 2rem;
+    background: transparent;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+}
+
+.stat-item h3 {
+    font-size: 2.5rem;
+    margin: 0 0 0.5rem;
+    font-weight: 700;
+}
+
+.stat-item p {
+    color: #ccc;
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+#services, #projects, #get-started, #what-i-do {
+    text-align: center;
+    padding: 6rem 0;
+}
+
+#services h2, #projects h2, #get-started h2, #what-i-do h2 {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+.services-container, .projects-container, .focus-areas-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.service-card, .project-card, .focus-area-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: left;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.service-card:hover, .project-card:hover, .focus-area-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 30px rgba(142, 45, 226, 0.5);
+}
+
+.service-card h3, .project-card h3, .focus-area-card h4 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.service-card p, .project-card p, .focus-area-card p {
+    color: #ccc;
+    font-size: 0.9rem;
+}
+
+.cta-button {
+    background: transparent;
+    color: white;
+    padding: 0.8rem 1.8rem;
+    border: 1px solid white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+    margin-top: 1rem;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 20px rgba(142, 45, 226, 0.7);
+    background-color: rgba(142, 45, 226, 0.1);
+}
+
+.get-started-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.form-container {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 2rem;
+    margin-top: 2rem;
+}
+
+.form-container h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+form label {
+    display: block;
+    text-align: left;
+    margin-bottom: 0.5rem;
+    color: #ccc;
+}
+
+form input, form select, form textarea {
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+form select option {
+    background: #000;
+    color: white;
+}
+
+.submit-button {
+    background: transparent;
+    color: white;
+    padding: 1rem 2.5rem;
+    border: 1px solid white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.submit-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 30px rgba(142, 45, 226, 0.8);
+}
+
+.closing-line {
+    margin-top: 2rem;
+    font-style: italic;
+    color: #ccc;
+}
+
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 100; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.8); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #111;
+    margin: 10% auto; /* 10% from the top and centered */
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    width: 80%; /* Could be more or less, depending on screen size */
+    max-width: 800px;
+    position: relative;
+    box-shadow: 0 0 50px rgba(142, 45, 226, 0.5);
+}
+
+.close-button {
+    color: #aaa;
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#modal-code-content {
+    background-color: #000;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 1rem;
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+#modal-code-content pre {
+    margin: 0;
+}
+
+#modal-code-content code {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9rem;
+    color: #eee;
+}
+
+/* Footer Styles */
+footer {
+    padding: 2rem 0;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    z-index: 1;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.social-icons {
+    margin-bottom: 1rem;
+}
+
+.social-icons a {
+    color: white;
+    font-size: 1.5rem;
+    margin: 0 0.75rem;
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: #9400D3; /* Dark Violet */
+}
+
+footer p {
+    font-size: 0.9rem;
+    color: #ccc;
+    margin: 0;
+}
